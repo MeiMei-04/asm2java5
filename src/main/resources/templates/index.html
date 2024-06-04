@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ QLKH</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Chào mừng đến với QLKH</h1>
+            <p class="lead">Đây là ứng dụng quản lý khách hàng của bạn.</p>
+            <hr class="my-4">
+            <p>Hãy đăng nhập để sử dụng các tính năng của ứng dụng.</p>
+            <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>
+        </div>
+    </div>
+
+    <!-- Modal Đăng nhập -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="username">Tên đăng nhập</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Nhập tên đăng nhập" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mật khẩu</label>
+                            <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                        <div style="color: red;text-align: center;" th:if="${textLogin != null}"><span th:text="${textLogin}"></span></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

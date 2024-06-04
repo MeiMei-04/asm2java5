@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa Người Dùng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+      <div th:replace="~{header :: header}"></div>
+    <div class="container my-5">
+        <h2>Sửa Người Dùng</h2>
+        <form th:action="@{/user/update/{id} (id=${user.id})}" method="post">
+            <input type="hidden" name="id" value="1">
+            <div class="form-group">
+                <label for="name">Họ và Tên:</label>
+                <input type="text" class="form-control" id="name" name="name" th:value="${user.name}" >
+                <div style="color: red;" th:if="${errors != null and errors['name'] != null}"><span th:text="${errors['name']}"></span></div>
+            </div>
+            <div class="form-group">
+                <label for="username">Tên Đăng Nhập:</label>
+                <input type="text" class="form-control" id="username" name="username" th:value="${user.username}" >
+                <div style="color: red;" th:if="${errors != null and errors['username'] != null}"><span th:text="${errors['username']}"></span></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật Khẩu:</label>
+                <input type="password" class="form-control" id="password" name="password" th:value="${user.password}" >
+                <div style="color: red;" th:if="${errors != null and errors['password'] != null}"><span th:text="${errors['password']}"></span></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+        </form>
+    </div>
+    <div th:replace="~{footer :: footer}"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

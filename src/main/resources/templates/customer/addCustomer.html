@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thêm Khách Hàng</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div th:replace="~{header :: header}"></div>
+        <div class="container my-5">
+            <h2>Thêm Khách Hàng</h2>
+            <form th:action="@{/customer/save}" method="post">
+                <div class="form-group">
+                    <label for="name">Họ và tên:</label>
+                    <input type="text" class="form-control" id="name" name="name" th:value="${customer.name}" >
+                    <div style="color: red;" th:if="${errors != null and errors['name'] != null}"><span th:text="${errors['name']}"></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" th:value="${customer.email}" >
+                    <div style="color: red;" th:if="${errors != null and errors['email'] != null}"><span th:text="${errors['email']}"></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="user_id">Người Tạo:</label>
+                    <select class="form-control" id="user_id" name="user_id" >
+                        <option th:each="x : ${users}"  th:value="${x.id}" th:text="${x.name}"></option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </form>
+        </div>
+        <div th:replace="~{footer :: footer}"></div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
