@@ -10,21 +10,21 @@ import com.example.ASM2.model.User;
  *
  * @author Hieu
  */
-public class SessisonMaganer {
+public class SessionManager {
     private static boolean isLogin = false;
     private static User user = null;
     public static void login(User user){
-        SessisonMaganer.isLogin = true;
-        SessisonMaganer.user = user;
+        SessionManager.isLogin = true;
+        SessionManager.user = user;
     }
     public static User getUserLogin(){
-        return SessisonMaganer.user;
+        return SessionManager.user;
     }
     public static boolean isLogin(){
-        return SessisonMaganer.isLogin;
+        return SessionManager.isLogin;
     }
     public static void logout(){
-        SessisonMaganer.isLogin = false;
-        SessisonMaganer.user = null;
+        SessionManager.isLogin = false;
+        SessionManager.user = null;
     }
 }

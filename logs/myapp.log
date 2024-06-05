@@ -1,0 +1,107 @@
+2024-06-05 14:35:57 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:35:57 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:35:57 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:36:46 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:36:46 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:36:46 WARN  [CustomerController] - Access denied: user not logged in
+2024-06-05 14:36:50 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:36:50 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:36:50 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:39:49 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:39:49 INFO  [LoginController] - Accessing home page
+2024-06-05 14:39:56 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:39:56 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:39:56 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:40:40 WARN  [LoginController] - Access denied: user not logged in
+2024-06-05 14:40:40 INFO  [LoginController] - Accessing login page
+2024-06-05 14:40:55 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:40:55 INFO  [LoginController] - Accessing home page
+2024-06-05 14:40:56 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:40:56 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:40:56 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:41:22 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:41:22 INFO  [LoginController] - Accessing home page
+2024-06-05 14:41:26 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:41:26 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:41:26 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:41:27 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:41:27 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:41:27 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:41:33 INFO  [LoginController] - Accessing home page
+2024-06-05 14:41:36 INFO  [LoginController] - User logged out
+2024-06-05 14:41:58 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:41:58 INFO  [LoginController] - Accessing home page
+2024-06-05 14:41:59 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:41:59 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:41:59 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:42:19 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:42:19 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:42:19 WARN  [CustomerController] - Access denied: user not logged in
+2024-06-05 14:42:19 INFO  [LoginController] - Accessing login page
+2024-06-05 14:42:23 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:42:23 INFO  [LoginController] - Accessing home page
+2024-06-05 14:42:25 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:42:25 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:42:25 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:42:25 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:42:25 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:42:25 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:42:26 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:42:26 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:42:26 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:42:26 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:42:26 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:42:26 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:43:46 WARN  [LoginController] - Access denied: user not logged in
+2024-06-05 14:43:46 INFO  [LoginController] - Accessing login page
+2024-06-05 14:43:52 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:43:52 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:43:52 WARN  [CustomerController] - Access denied: user not logged in
+2024-06-05 14:43:52 INFO  [LoginController] - Accessing login page
+2024-06-05 14:47:48 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:47:48 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:47:48 WARN  [CustomerController] - Access denied: user not logged in
+2024-06-05 14:47:48 INFO  [LoginController] - Accessing login page
+2024-06-05 14:47:53 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:47:53 INFO  [LoginController] - Accessing home page
+2024-06-05 14:47:56 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:47:56 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:47:56 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:48:33 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:48:33 INFO  [LoginController] - Accessing home page
+2024-06-05 14:48:37 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:48:37 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:48:37 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:48:51 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:48:51 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:48:51 INFO  [CustomerController] - Accessing add customer page
+2024-06-05 14:49:15 DEBUG [CustomerController] - Fetched all customers: 7
+2024-06-05 14:49:15 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:49:15 INFO  [CustomerController] - Customer saved successfully: com.example.ASM2.model.Customer@77934bc7
+2024-06-05 14:49:15 DEBUG [CustomerController] - Fetched all customers: 8
+2024-06-05 14:49:15 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:49:15 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:50:09 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:09 DEBUG [CustomerController] - Fetched all customers: 8
+2024-06-05 14:50:09 WARN  [CustomerController] - Access denied: user not logged in
+2024-06-05 14:50:09 INFO  [LoginController] - Accessing login page
+2024-06-05 14:50:11 INFO  [LoginController] - User logged in successfully: 1
+2024-06-05 14:50:11 INFO  [LoginController] - Accessing home page
+2024-06-05 14:50:12 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:12 DEBUG [CustomerController] - Fetched all customers: 8
+2024-06-05 14:50:12 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:50:14 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:14 DEBUG [CustomerController] - Fetched all customers: 8
+2024-06-05 14:50:14 INFO  [CustomerController] - Accessing add customer page
+2024-06-05 14:50:19 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:19 DEBUG [CustomerController] - Fetched all customers: 8
+2024-06-05 14:50:19 INFO  [CustomerController] - Customer saved successfully: Nguy?n ?ình Hi?u:12a121212@gmail.com
+2024-06-05 14:50:19 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:19 DEBUG [CustomerController] - Fetched all customers: 9
+2024-06-05 14:50:19 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:50:42 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:42 DEBUG [CustomerController] - Fetched all customers: 9
+2024-06-05 14:50:42 INFO  [CustomerController] - Accessing customer list
+2024-06-05 14:50:48 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 14:50:48 DEBUG [CustomerController] - Fetched all customers: 9
+2024-06-05 14:50:48 ERROR [CustomerController] - Validation errors while saving customer: [Field error in object 'customer' on field 'name': rejected value []; codes [NotBlank.customer.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.name,name]; arguments []; default message [name]]; default message [Name Can Not Null]]
