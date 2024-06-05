@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.example.ASM2.controller;
 
 import com.example.ASM2.auth.SessionManager;
@@ -12,7 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,22 +23,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author Hieu
+ * @author Hieu (author of the original code)
  */
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-    private static final Logger logger = Logger.getLogger(UserController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     UserRepository userRepository;
-    private List<User> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>(); // Consider using UserRepository instead
 
     @ModelAttribute("users")
     public List<User> fillAll() {
         users = userRepository.findAll();
-        logger.debug("Fetched all users: " + users.size());
+        logger.debug("Fetched all users: {}", users.size());
         return users;
     }
 
@@ -68,7 +65,7 @@ public class UserController {
     @PostMapping("/save")
     public String save(@ModelAttribute @Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            logger.error("Validation errors while saving user: " + bindingResult.getFieldErrors());
+            logger.error("Validation errors while saving user: {}", bindingResult.getFieldErrors());
             List<FieldError> listError = bindingResult.getFieldErrors();
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : listError) {
@@ -79,7 +76,7 @@ public class UserController {
             return "/user/addUser.html";
         }
         userRepository.save(user);
-        logger.info("User saved successfully: " + user.getUsername());
+        logger.info("User saved successfully: {}", user.getUsername());
         return "/user/listUser.html";
     }
 
@@ -90,18 +87,18 @@ public class UserController {
             return "redirect:/login";
         }
         User user = userRepository.findById(id).orElseThrow(() -> {
-            logger.error("User not found with ID: " + id);
+            logger.error("User not found with ID: {}", id);
             return new RuntimeException("User not found");
         });
         model.addAttribute("user", user);
-        logger.info("Accessing edit page for user ID: " + id);
+        logger.info("Accessing edit page for user ID: {}", id);
         return "/user/editUser.html";
     }
 
     @PostMapping("/update/{id}")
     public String update(@PathVariable("id") Long id, @ModelAttribute @Valid User u, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            logger.error("Validation errors while updating user: " + bindingResult.getFieldErrors());
+            logger.error("Validation errors while updating user: {}", bindingResult.getFieldErrors());
             List<FieldError> listError = bindingResult.getFieldErrors();
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : listError) {
@@ -111,15 +108,16 @@ public class UserController {
             model.addAttribute("user", u);
             return "/user/addUser.html";
         }
+
         User user = userRepository.findById(id).orElseThrow(() -> {
-            logger.error("User not found with ID: " + id);
+            logger.error("User not found with ID: {}", id);
             return new RuntimeException("User not found");
         });
         user.setName(u.getName());
         user.setPassword(u.getPassword());
         user.setUsername(u.getUsername());
         userRepository.save(user);
-        logger.info("User updated successfully: " + user.getUsername());
+        logger.info("User updated successfully: {}", user.getUsername());
         return "redirect:/user/list";
     }
 
@@ -130,11 +128,11 @@ public class UserController {
             return "redirect:/login";
         }
         User user = userRepository.findById(id).orElseThrow(() -> {
-            logger.error("User not found with ID: " + id);
+            logger.error("User not found with ID: {}", id);
             return new RuntimeException("User not found");
         });
         userRepository.delete(user);
-        logger.info("User deleted successfully: " + user.getUsername());
-        return "/user/editUser.html";
+        logger.info("User deleted successfully: {}", user.getUsername());
+        return "redirect:/user/list"; // Consider returning a specific page instead of redirecting again
     }
 }

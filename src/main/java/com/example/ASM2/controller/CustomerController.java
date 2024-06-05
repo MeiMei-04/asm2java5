@@ -5,29 +5,27 @@ import com.example.ASM2.model.Customer;
 import com.example.ASM2.model.User;
 import com.example.ASM2.repository.CustomerRepository;
 import com.example.ASM2.repository.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 
-    private static final Logger logger = Logger.getLogger(CustomerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -35,25 +33,32 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    private List<Customer> customers = new ArrayList<>();
-    private List<User> users = new ArrayList<>();
+    @Autowired
+    private HttpServletRequest request;
 
     @ModelAttribute("customers")
     public List<Customer> fillCustomer() {
-        customers = customerRepository.findAll();
-        logger.debug("Fetched all customers: " + customers.size());
-        return customers;
+        String ipAddress = request.getRemoteAddr();
+        if (!SessionManager.isLogin()) {
+            logger.debug("User not logged in | IP: {}", ipAddress);
+            return null;
+        }
+        logger.debug("Fetching all customers | IP: {}", ipAddress);
+        return customerRepository.findAll();
     }
 
     @ModelAttribute("users")
     public List<User> fillUser() {
-        users = userRepository.findAll();
-        logger.info("Fetched all users: " + users.size());
-        return users;
+        String ipAddress = request.getRemoteAddr();
+        if (!SessionManager.isLogin()) {
+            return null;
+        }
+        logger.debug("Fetching all users | IP: {}", ipAddress);
+        return userRepository.findAll();
     }
 
     @GetMapping("/list")
-    public String list() {
+    public String list(Model model) {
         if (!SessionManager.isLogin()) {
             logger.warn("Access denied: user not logged in");
             return "redirect:/login";
@@ -75,7 +80,7 @@ public class CustomerController {
     @PostMapping("/save")
     public String save(@ModelAttribute @Valid Customer c, BindingResult bindingResult, @RequestParam Long user_id, Model model) {
         if (bindingResult.hasErrors()) {
-            logger.error("Validation errors while saving customer: " + bindingResult.getFieldErrors());
+            logger.error("Validation errors while saving customer: {}", bindingResult.getFieldError());
             List<FieldError> listError = bindingResult.getFieldErrors();
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : listError) {
@@ -85,16 +90,13 @@ public class CustomerController {
             model.addAttribute("customer", c);
             return "/customer/addCustomer.html";
         }
-        User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.error("User not found with ID: " + user_id);
-            return new RuntimeException("User not found");
-        });
+        User user = userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("User not found"));
         Customer customer = new Customer();
         customer.setName(c.getName());
         customer.setEmail(c.getEmail());
         customer.setUser(user);
         customerRepository.save(customer);
-        logger.info("Customer saved successfully: " + customer);
+        logger.info("Customer saved successfully");
         return "redirect:/customer/list";
     }
 
@@ -104,19 +106,16 @@ public class CustomerController {
             logger.warn("Access denied: user not logged in");
             return "redirect:/login";
         }
-        Customer customer = customerRepository.findById(id).orElseThrow(() -> {
-            logger.error("Customer not found with ID: " + id);
-            return new RuntimeException("Customer not found");
-        });
+        Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
         model.addAttribute("customer", customer);
-        logger.info("Accessing edit page for customer ID: " + id);
+        logger.info("Accessing edit page for customer ID: {}", id);
         return "/customer/editCustomer.html";
     }
 
     @PostMapping("/update/{id}")
     public String update(@PathVariable("id") Long id, @ModelAttribute @Valid Customer c, BindingResult bindingResult, @RequestParam Long user_id, Model model) {
         if (bindingResult.hasErrors()) {
-            logger.error("Validation errors while updating customer: " + bindingResult.getFieldErrors());
+            logger.error("Validation errors while updating customer: {}", bindingResult.getFieldError());
             List<FieldError> listError = bindingResult.getFieldErrors();
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : listError) {
@@ -126,19 +125,13 @@ public class CustomerController {
             model.addAttribute("customer", c);
             return "/customer/editCustomer.html";
         }
-        Customer customer = customerRepository.findById(id).orElseThrow(() -> {
-            logger.error("Customer not found with ID: " + id);
-            return new RuntimeException("Customer not found");
-        });
-        User user = userRepository.findById(user_id).orElseThrow(() -> {
-            logger.error("User not found with ID: " + user_id);
-            return new RuntimeException("User not found");
-        });
+        Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
+        User user = userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("User not found"));
         customer.setName(c.getName());
         customer.setEmail(c.getEmail());
         customer.setUser(user);
         customerRepository.save(customer);
-        logger.info("Customer updated successfully: " + customer);
+        logger.info("Customer updated successfully");
         return "redirect:/customer/list";
     }
 
@@ -148,12 +141,9 @@ public class CustomerController {
             logger.warn("Access denied: user not logged in");
             return "redirect:/login";
         }
-        Customer customer = customerRepository.findById(id).orElseThrow(() -> {
-            logger.error("Customer not found with ID: " + id);
-            return new RuntimeException("Customer not found");
-        });
+        Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
         customerRepository.delete(customer);
-        logger.info("Customer deleted successfully: " + customer);
+        logger.info("Customer deleted successfully");
         return "redirect:/customer/list";
     }
 }

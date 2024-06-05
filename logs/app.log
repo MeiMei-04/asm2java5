@@ -1,0 +1,108 @@
+2024-06-05 20:36:44 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-06-05 20:36:44 INFO  com.example.ASM2.Asm2Application - Starting Asm2Application using Java 17.0.1 with PID 7236 (C:\Users\Hieu\Desktop\ASM2\ASM2\build\classes\java\main started by Hieu in C:\Users\Hieu\Desktop\ASM2\ASM2)
+2024-06-05 20:36:44 DEBUG com.example.ASM2.Asm2Application - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-05 20:36:44 INFO  com.example.ASM2.Asm2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-05 20:36:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-05 20:36:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 2 JPA repository interfaces.
+2024-06-05 20:36:45 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-05 20:36:45 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-05 20:36:45 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-05 20:36:45 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-05 20:36:45 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-05 20:36:45 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 842 ms
+2024-06-05 20:36:45 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-05 20:36:45 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 9424800e-509c-4377-8d42-eede42878d02
+2024-06-05 20:36:45 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-05 20:36:45 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-05 20:36:46 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-05 20:36:46 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-05 20:36:46 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-05 20:36:46 WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-05 20:36:46 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-05 20:36:46 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-05 20:36:47 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-05 20:36:47 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-06-05 20:36:47 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-05 20:36:47 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-05 20:36:47 INFO  com.example.ASM2.Asm2Application - Started Asm2Application in 2.981 seconds (process running for 3.249)
+2024-06-05 20:36:47 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-05 20:36:47 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-05 20:36:47 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-05 20:36:53 INFO  c.e.ASM2.controller.LoginController - User logged in successfully: 1
+2024-06-05 20:36:53 INFO  c.e.ASM2.controller.LoginController - Accessing home page
+2024-06-05 20:37:10 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:10 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:10 INFO  c.e.A.controller.CustomerController - Accessing customer list
+2024-06-05 20:37:31 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:31 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:31 INFO  c.e.A.controller.CustomerController - Accessing add customer page
+2024-06-05 20:37:49 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:49 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:49 INFO  c.e.A.controller.CustomerController - Customer saved successfully
+2024-06-05 20:37:49 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:49 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:37:49 INFO  c.e.A.controller.CustomerController - Accessing customer list
+2024-06-05 20:38:05 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:38:05 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:38:05 INFO  c.e.A.controller.CustomerController - Customer deleted successfully
+2024-06-05 20:38:05 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:38:05 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:38:05 INFO  c.e.A.controller.CustomerController - Accessing customer list
+2024-06-05 20:38:16 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:38:16 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:38:16 INFO  c.e.A.controller.CustomerController - Accessing edit page for customer ID: 2
+2024-06-05 20:39:22 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-06-05 20:39:22 INFO  com.example.ASM2.Asm2Application - Starting Asm2Application using Java 17.0.1 with PID 9296 (C:\Users\Hieu\Desktop\ASM2\ASM2\build\classes\java\main started by Hieu in C:\Users\Hieu\Desktop\ASM2\ASM2)
+2024-06-05 20:39:22 DEBUG com.example.ASM2.Asm2Application - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-05 20:39:22 INFO  com.example.ASM2.Asm2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-05 20:39:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-05 20:39:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 2 JPA repository interfaces.
+2024-06-05 20:39:23 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-05 20:39:23 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-05 20:39:23 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-05 20:39:23 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-05 20:39:23 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-05 20:39:23 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 798 ms
+2024-06-05 20:39:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-05 20:39:23 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 6a96c345-ac20-457f-b61e-ec302cf3e404
+2024-06-05 20:39:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-05 20:39:23 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-05 20:39:23 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-05 20:39:23 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-05 20:39:24 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-05 20:39:24 WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-05 20:39:24 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-05 20:39:24 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-05 20:39:24 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-05 20:39:24 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-06-05 20:39:25 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-05 20:39:25 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-05 20:39:25 INFO  com.example.ASM2.Asm2Application - Started Asm2Application in 2.583 seconds (process running for 2.854)
+2024-06-05 20:39:29 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-05 20:39:29 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-05 20:39:29 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-05 20:39:29 DEBUG c.e.A.controller.CustomerController - User not logged in | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:39:29 ERROR c.e.A.controller.CustomerController - Validation errors while updating customer: Field error in object 'customer' on field 'name': rejected value []; codes [NotBlank.customer.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.name,name]; arguments []; default message [name]]; default message [Name Can Not Null]
+2024-06-05 20:39:59 WARN  c.e.ASM2.controller.LoginController - Access denied: user not logged in
+2024-06-05 20:39:59 INFO  c.e.ASM2.controller.LoginController - Accessing login page
+2024-06-05 20:40:04 WARN  c.e.ASM2.controller.LoginController - Access denied: user not logged in
+2024-06-05 20:40:04 INFO  c.e.ASM2.controller.LoginController - Accessing login page
+2024-06-05 20:40:07 WARN  c.e.ASM2.controller.LoginController - Access denied: user not logged in
+2024-06-05 20:40:07 INFO  c.e.ASM2.controller.LoginController - Accessing login page
+2024-06-05 20:40:40 DEBUG c.e.A.controller.CustomerController - User not logged in | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:40:40 ERROR c.e.A.controller.CustomerController - Validation errors while updating customer: Field error in object 'customer' on field 'name': rejected value []; codes [NotBlank.customer.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.name,name]; arguments []; default message [name]]; default message [Name Can Not Null]
+2024-06-05 20:40:42 DEBUG c.e.A.controller.CustomerController - User not logged in | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:40:42 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'user_id' for method parameter type Long is not present]
+2024-06-05 20:40:58 DEBUG c.e.ASM2.controller.UserController - Fetched all users: 3
+2024-06-05 20:40:58 WARN  c.e.ASM2.controller.UserController - Access denied: user not logged in
+2024-06-05 20:40:58 INFO  c.e.ASM2.controller.LoginController - Accessing login page
+2024-06-05 20:41:06 INFO  c.e.ASM2.controller.LoginController - User logged in successfully: 1
+2024-06-05 20:41:06 INFO  c.e.ASM2.controller.LoginController - Accessing home page
+2024-06-05 20:41:07 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:41:07 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:41:07 INFO  c.e.A.controller.CustomerController - Accessing customer list
+2024-06-05 20:41:08 INFO  c.e.ASM2.controller.LoginController - Accessing home page
+2024-06-05 20:41:09 DEBUG c.e.A.controller.CustomerController - Fetching all customers | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:41:09 DEBUG c.e.A.controller.CustomerController - Fetching all users | IP: 0:0:0:0:0:0:0:1
+2024-06-05 20:41:09 INFO  c.e.A.controller.CustomerController - Accessing customer list
+2024-06-05 20:41:09 INFO  c.e.ASM2.controller.LoginController - Accessing home page

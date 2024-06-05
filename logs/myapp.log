@@ -105,3 +105,7 @@
 2024-06-05 14:50:48 INFO  [CustomerController] - Fetched all users: 3
 2024-06-05 14:50:48 DEBUG [CustomerController] - Fetched all customers: 9
 2024-06-05 14:50:48 ERROR [CustomerController] - Validation errors while saving customer: [Field error in object 'customer' on field 'name': rejected value []; codes [NotBlank.customer.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.name,name]; arguments []; default message [name]]; default message [Name Can Not Null]]
+2024-06-05 15:07:48 INFO  [CustomerController] - Fetched all users: 3
+2024-06-05 15:07:48 DEBUG [CustomerController] - Fetched all customers: 9
+2024-06-05 15:07:48 WARN  [CustomerController] - Access denied: user not logged in
+2024-06-05 15:07:48 INFO  [LoginController] - Accessing login page
