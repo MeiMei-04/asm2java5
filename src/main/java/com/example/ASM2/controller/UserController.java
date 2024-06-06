@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+//    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     UserRepository userRepository;
@@ -38,34 +38,34 @@ public class UserController {
     @ModelAttribute("users")
     public List<User> fillAll() {
         users = userRepository.findAll();
-        logger.debug("Fetched all users: {}", users.size());
+        //logger.debug("Fetched all users: {}", users.size());
         return users;
     }
 
     @GetMapping("/list")
     public String list() {
         if (!SessionManager.isLogin()) {
-            logger.warn("Access denied: user not logged in");
+            //logger.warn("Access denied: user not logged in");
             return "redirect:/login";
         }
-        logger.info("Accessing user list page");
+        //logger.info("Accessing user list page");
         return "/user/listUser.html";
     }
 
     @GetMapping("/add")
     public String add(@ModelAttribute("user") User user) {
         if (!SessionManager.isLogin()) {
-            logger.warn("Access denied: user not logged in");
+            //logger.warn("Access denied: user not logged in");
             return "redirect:/login";
         }
-        logger.info("Accessing add user page");
+        //logger.info("Accessing add user page");
         return "/user/addUser.html";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute @Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            logger.error("Validation errors while saving user: {}", bindingResult.getFieldErrors());
+            //logger.error("Validation errors while saving user: {}", bindingResult.getFieldErrors());
             List<FieldError> listError = bindingResult.getFieldErrors();
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : listError) {
@@ -76,29 +76,29 @@ public class UserController {
             return "/user/addUser.html";
         }
         userRepository.save(user);
-        logger.info("User saved successfully: {}", user.getUsername());
+        //logger.info("User saved successfully: {}", user.getUsername());
         return "/user/listUser.html";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         if (!SessionManager.isLogin()) {
-            logger.warn("Access denied: user not logged in");
+            //logger.warn("Access denied: user not logged in");
             return "redirect:/login";
         }
         User user = userRepository.findById(id).orElseThrow(() -> {
-            logger.error("User not found with ID: {}", id);
+            //logger.error("User not found with ID: {}", id);
             return new RuntimeException("User not found");
         });
         model.addAttribute("user", user);
-        logger.info("Accessing edit page for user ID: {}", id);
+        //logger.info("Accessing edit page for user ID: {}", id);
         return "/user/editUser.html";
     }
 
     @PostMapping("/update/{id}")
     public String update(@PathVariable("id") Long id, @ModelAttribute @Valid User u, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            logger.error("Validation errors while updating user: {}", bindingResult.getFieldErrors());
+            //logger.error("Validation errors while updating user: {}", bindingResult.getFieldErrors());
             List<FieldError> listError = bindingResult.getFieldErrors();
             Map<String, String> errors = new HashMap<>();
             for (FieldError fieldError : listError) {
@@ -110,29 +110,29 @@ public class UserController {
         }
 
         User user = userRepository.findById(id).orElseThrow(() -> {
-            logger.error("User not found with ID: {}", id);
+            //logger.error("User not found with ID: {}", id);
             return new RuntimeException("User not found");
         });
         user.setName(u.getName());
         user.setPassword(u.getPassword());
         user.setUsername(u.getUsername());
         userRepository.save(user);
-        logger.info("User updated successfully: {}", user.getUsername());
+        //logger.info("User updated successfully: {}", user.getUsername());
         return "redirect:/user/list";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         if (!SessionManager.isLogin()) {
-            logger.warn("Access denied: user not logged in");
+            //logger.warn("Access denied: user not logged in");
             return "redirect:/login";
         }
         User user = userRepository.findById(id).orElseThrow(() -> {
-            logger.error("User not found with ID: {}", id);
+            //logger.error("User not found with ID: {}", id);
             return new RuntimeException("User not found");
         });
         userRepository.delete(user);
-        logger.info("User deleted successfully: {}", user.getUsername());
+        //logger.info("User deleted successfully: {}", user.getUsername());
         return "redirect:/user/list"; // Consider returning a specific page instead of redirecting again
     }
 }

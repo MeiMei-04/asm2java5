@@ -39,3 +39,12 @@ VALUES
   ('Sarah Davis', 'sarah.davis@example.com', 3),
   ('Michael Chen', 'michael.chen@example.com', 1);
 GO
+-- Create History table
+CREATE TABLE History (
+  id INT PRIMARY KEY IDENTITY(1,1),
+  timestamp DATETIME DEFAULT GETDATE(),
+  ipadress VARCHAR(100),
+  Operation VARCHAR(100),
+  [user] VARCHAR(100),
+  Description TEXT
+);
