@@ -1,0 +1,14 @@
+.custom-btn {
+    background-color: #4CAF50; /* Change to your desired color */
+    border-color: #4CAF50; /* Ensure the border matches the background */
+    color: white; /* Ensure the text color contrasts with the background */
+}
+
+.custom-btn:hover {
+    background-color: #45a049; /* A darker shade for hover effect */
+    border-color: #45a049; /* Ensure the border matches the hover background */
+}
+
+.btn-container {
+    margin-top: 20px; /* Optional: Add margin for better positioning */
+}

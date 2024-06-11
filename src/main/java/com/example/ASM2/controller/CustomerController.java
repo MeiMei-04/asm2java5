@@ -75,6 +75,8 @@ public class CustomerController {
             for (FieldError fieldError : listError) {
                 errors.put(fieldError.getField(), fieldError.getDefaultMessage());
             }
+            User user = userRepository.findById(user_id).orElseThrow();
+            c.setUser(user);
             model.addAttribute("errors", errors);
             model.addAttribute("customer", c);
             return "/customer/addCustomer.html";
@@ -110,6 +112,8 @@ public class CustomerController {
             for (FieldError fieldError : listError) {
                 errors.put(fieldError.getField(), fieldError.getDefaultMessage());
             }
+            User user = userRepository.findById(user_id).orElseThrow();
+            c.setUser(user);
             model.addAttribute("errors", errors);
             model.addAttribute("customer", c);
             return "/customer/editCustomer.html";
