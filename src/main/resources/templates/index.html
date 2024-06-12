@@ -31,11 +31,13 @@
                     <form action="/login" method="POST">
                         <div class="form-group">
                             <label for="username">Tên đăng nhập</label>
-                            <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Nhập tên đăng nhập" name="username">
+                            <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Nhập tên đăng nhập" name="username" th:value="${user.username}">
+                            <div style="color: red;" th:if="${errors != null and errors['username'] != null}"><span th:text="${errors['username']}"></span></div>
                         </div>
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
-                            <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password">
+                            <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password" th:value="${user.password}">
+                            <div style="color: red;" th:if="${errors != null and errors['password'] != null}"><span th:text="${errors['password']}"></span></div>
                         </div>
                         <button type="submit" class="btn btn-primary">Đăng nhập</button>
                         <div style="color: red;text-align: center;" th:if="${textLogin != null}"><span th:text="${textLogin}"></span></div>
