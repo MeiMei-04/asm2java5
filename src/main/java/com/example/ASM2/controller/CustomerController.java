@@ -144,7 +144,7 @@ public class CustomerController {
         }
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
         try {
-            customerRepository.save(customer);
+            customerRepository.delete(customer);
         } catch (Exception e) {
         }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),

@@ -135,7 +135,7 @@ public class UserController {
             return new RuntimeException("User not found");
         });
         try {
-            userRepository.save(user);
+            userRepository.delete(user);
         } catch (Exception e) {
         }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
