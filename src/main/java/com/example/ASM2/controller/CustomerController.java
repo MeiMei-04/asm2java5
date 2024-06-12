@@ -140,7 +140,7 @@ public class CustomerController {
         customerRepository.delete(customer);
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
-                "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
+                "DELETE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
                 "DATA={" + customer.getId() + ";" + customer.getName() + ";" + customer.getEmail()+ "}"));
         return "redirect:/customer/list";
     }

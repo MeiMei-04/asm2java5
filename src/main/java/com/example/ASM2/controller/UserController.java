@@ -131,7 +131,7 @@ public class UserController {
         userRepository.delete(user);
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
-                "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
+                "DELETE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
                 "DATA={" + user.getId() + ";" + user.getName() + ";" + user.getPassword() + ";" + user.getPassword() + "}"));
         return "redirect:/user/list"; // Consider returning a specific page instead of redirecting again
     }
