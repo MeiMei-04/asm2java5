@@ -86,7 +86,10 @@ public class CustomerController {
         customer.setName(c.getName());
         customer.setEmail(c.getEmail());
         customer.setUser(user);
-        customerRepository.save(customer);
+        try {
+            customerRepository.save(customer);
+        } catch (Exception e) {
+        }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
@@ -123,7 +126,10 @@ public class CustomerController {
         customer.setName(c.getName());
         customer.setEmail(c.getEmail());
         customer.setUser(user);
-        customerRepository.save(customer);
+        try {
+            customerRepository.save(customer);
+        } catch (Exception e) {
+        }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
@@ -137,7 +143,10 @@ public class CustomerController {
             return "redirect:/login";
         }
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
-        customerRepository.delete(customer);
+        try {
+            customerRepository.save(customer);
+        } catch (Exception e) {
+        }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "DELETE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),

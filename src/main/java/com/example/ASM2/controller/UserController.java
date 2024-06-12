@@ -73,7 +73,10 @@ public class UserController {
             model.addAttribute("user", user);
             return "/user/addUser.html";
         }
-        userRepository.save(user);
+        try {
+            userRepository.save(user);
+        } catch (Exception e) {
+        }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
@@ -112,7 +115,10 @@ public class UserController {
         user.setName(u.getName());
         user.setPassword(u.getPassword());
         user.setUsername(u.getUsername());
-        userRepository.save(user);
+        try {
+            userRepository.save(user);
+        } catch (Exception e) {
+        }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
@@ -128,7 +134,10 @@ public class UserController {
         User user = userRepository.findById(id).orElseThrow(() -> {
             return new RuntimeException("User not found");
         });
-        userRepository.delete(user);
+        try {
+            userRepository.save(user);
+        } catch (Exception e) {
+        }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "DELETE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
