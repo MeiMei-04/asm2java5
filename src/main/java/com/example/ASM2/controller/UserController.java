@@ -79,8 +79,8 @@ public class UserController {
         }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
-                "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
-                "DATA={" + user.getId() + ";" + user.getName() + ";" + user.getPassword() + ";" + user.getPassword() + "}"));
+                "INSERT", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
+                "DATA:|" +"ID:"+ user.getId() + "|NAME:" + user.getName() + "|USERNAME:" + user.getUsername()));
         return "redirect:/user/list";
     }
 
@@ -112,6 +112,8 @@ public class UserController {
         User user = userRepository.findById(id).orElseThrow(() -> {
             return new RuntimeException("User not found");
         });
+        String beforUserName = user.getName();
+        String beforUserUsername = user.getUsername();
         user.setName(u.getName());
         user.setPassword(u.getPassword());
         user.setUsername(u.getUsername());
@@ -122,7 +124,8 @@ public class UserController {
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
-                "DATA={" + user.getId() + ";" + user.getName() + ";" + user.getPassword() + ";" + user.getPassword() + "}"));
+                "Befor:|" +"ID:"+ user.getId() + "|NAME:" + beforUserName + "|USERNAME:" + beforUserUsername + "\n"
+                + "AFTER|"+"ID:" + user.getId() + "|NAME:" + user.getName() + "|USERNAME:" + user.getUsername()));
         return "redirect:/user/list";
     }
 
@@ -141,7 +144,7 @@ public class UserController {
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "DELETE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
-                "DATA={" + user.getId() + ";" + user.getName() + ";" + user.getPassword() + ";" + user.getPassword() + "}"));
+                "DATA:|" +"ID:"+ user.getId() + "|NAME:" + user.getName() + "|USERNAME:" + user.getUsername()));
         return "redirect:/user/list"; // Consider returning a specific page instead of redirecting again
     }
 }

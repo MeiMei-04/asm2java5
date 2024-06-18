@@ -16,7 +16,7 @@
                         <th>ID</th>
                         <th>Họ và Tên</th>
                         <th>Tên Đăng Nhập</th>
-                        <th>Mật Khẩu</th>
+                        <!--<th>Mật Khẩu</th>-->
                         <th>Hành Động</th>
                     </tr>
                 </thead>
@@ -25,7 +25,7 @@
                         <td th:text="${x.id}"></td>
                         <td th:text="${x.name}"></td>
                         <td th:text="${x.username}"></td>
-                        <td th:text="${x.password}"></td>
+                        <!--<td th:text="${x.password}"></td>-->
                         <td>
                             <a th:href="@{/user/edit/{id} (id = ${x.id})}" class="btn btn-primary btn-sm">Sửa</a>
                             <!--<a th:href="@{/user/delete/{id} (id = ${x.id})}" class="btn btn-danger btn-sm">Xóa</a>-->

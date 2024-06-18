@@ -19,8 +19,7 @@ GO
 CREATE TABLE Customer (
   id INT PRIMARY KEY IDENTITY(1,1),
   name VARCHAR(50) NOT NULL,
-  email VARCHAR(100) UNIQUE NOT NULL,
-  user_id INT FOREIGN KEY REFERENCES [User](id)
+  email VARCHAR(100) UNIQUE NOT NULL
 );
 GO
 -- Nhập dữ liệu vào bảng user
@@ -32,12 +31,12 @@ VALUES
 GO
 
 -- Nhập dữ liệu vào bảng Customer
-INSERT INTO Customer (name, email, user_id)
+INSERT INTO Customer (name, email)
 VALUES
-  ('Alice Brown', 'alice.brown@example.com', 1),
-  ('David Lee', 'david.lee@example.com', 2),
-  ('Sarah Davis', 'sarah.davis@example.com', 3),
-  ('Michael Chen', 'michael.chen@example.com', 1);
+  ('Alice Brown', 'alice.brown@example.com'),
+  ('David Lee', 'david.lee@example.com'),
+  ('Sarah Davis', 'sarah.davis@example.com'),
+  ('Michael Chen', 'michael.chen@example.com');
 GO
 -- Create History table
 CREATE TABLE History (

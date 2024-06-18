@@ -92,8 +92,8 @@ public class CustomerController {
         }
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
-                "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
-                "DATA={" + customer.getId() + ";" + customer.getName() + ";" + customer.getEmail()+ ";" + user.getId()+ "}"));
+                "INSERT", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
+                "DATA:|" +"ID:"+ customer.getId() + "|NAME:" + customer.getName() + "|EMAIL:" + customer.getEmail()));
         return "redirect:/customer/list";
     }
 
@@ -122,6 +122,8 @@ public class CustomerController {
             return "/customer/editCustomer.html";
         }
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
+        String beforCustomerName = customer.getName();
+        String beforCustomerEmail = customer.getEmail();
         User user = userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("User not found"));
         customer.setName(c.getName());
         customer.setEmail(c.getEmail());
@@ -133,7 +135,8 @@ public class CustomerController {
         historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
                 "UPDATE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
-                "DATA={" + customer.getId() + ";" + customer.getName() + ";" + customer.getEmail()+ ";" + user.getId()+ "}"));
+                "Befor:|" +"ID:"+ customer.getId() + "|NAME:" + beforCustomerName + "|EMAIL:" + beforCustomerEmail + "\n"
+                + "AFTER|"+"ID:" + customer.getId() + "|NAME:" + customer.getName() + "|EMAIL:" + customer.getEmail()));
         return "redirect:/customer/list";
     }
 
@@ -147,10 +150,12 @@ public class CustomerController {
             customerRepository.delete(customer);
         } catch (Exception e) {
         }
-        historyRepository.save(new History(new Timestamp(System.currentTimeMillis()),
+        historyRepository.save(new History(
+                new Timestamp(System.currentTimeMillis()),
                 request.getRemoteAddr(),
-                "DELETE", SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
-                "DATA={" + customer.getId() + ";" + customer.getName() + ";" + customer.getEmail()+ "}"));
+                "DELETE",
+                SessionManager.getUserLogin() == null ? null : SessionManager.getUserLogin().getUsername(),
+                "DATA:|" +"ID:"+ customer.getId() + "|NAME:" + customer.getName() + "|EMAIL:" + customer.getEmail()));
         return "redirect:/customer/list";
     }
 }
